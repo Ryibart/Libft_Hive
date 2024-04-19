@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:06:31 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/18 19:44:05 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/19 12:48:32 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	i = n;
 	dst = (unsigned char *)s1;
 	src = (const unsigned char *)s2;
-	if ((dst > src) && (dst < src + n) && (src < dst + n))
+	if (!dst && !src)
+		return (0);
+	else if ((dst > src) && (dst < src + n) && (src < dst + n))
 	{
-		while (i > 0)
-		{
-			i--;
+		while (i--)
 			dst[i] = src[i];
-		}
 	}
 	else
 	{
@@ -48,9 +47,9 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 int main() {
     // Test case 1: Non-overlapping memory areas
     char src1[] = "LOL";
-    char dst1[20] = "\0sf";
+    char dst1[20] = "\0abc";
 	char src2[] = "LOL";
-    char dst2[20] = "\0sf";
+    char dst2[20] = "\0abc";
     ft_memmove(dst1, dst1 + 2, 4);
     printf("ft_memmove: %s\n", dst1);
     memmove(dst2, dst2 + 2, 4);

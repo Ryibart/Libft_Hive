@@ -6,7 +6,7 @@
 #    By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 14:30:33 by rtammi            #+#    #+#              #
-#    Updated: 2024/04/18 20:40:26 by rtammi           ###   ########.fr        #
+#    Updated: 2024/04/19 12:46:20 by rtammi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CFLAGS := -Wall -Wextra -Werror $(CFLAGS)
 
 .PHONY: all clean fclean re
 
-all: $(NAME) clean
+all: $(NAME)
 
 clean:
 	rm -f $(OBJS)

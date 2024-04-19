@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:12:58 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/18 19:44:05 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/19 12:47:08 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *restrict s1, const void *restrict s2, size_t n)
 	i = 0;
 	dst = (unsigned char *)s1;
 	src = (const unsigned char *)s2;
+	if (!dst && !src)
+		return (0);
 	while (i < n)
 	{
 		dst[i] = src[i];
