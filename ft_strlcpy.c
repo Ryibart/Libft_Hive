@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 20:16:30 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/18 20:40:03 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/19 16:07:29 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
+	if (!size)
+		return (ft_strlen(src));
 	while (src[i] && i < size - 1)
 	{
 		dst[i] = src[i];

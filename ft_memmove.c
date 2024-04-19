@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:06:31 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/19 12:48:32 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:48:29 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	unsigned char		*dst;
 	const unsigned char	*src;
 
-	i = n;
+	i = 0;
 	dst = (unsigned char *)s1;
 	src = (const unsigned char *)s2;
 	if (!dst && !src)
 		return (0);
 	else if ((dst > src) && (dst < src + n) && (src < dst + n))
 	{
+		i = n;
 		while (i--)
 			dst[i] = src[i];
 	}
@@ -47,12 +48,12 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 int main() {
     // Test case 1: Non-overlapping memory areas
     char src1[] = "LOL";
-    char dst1[20] = "\0abc";
+    char dst1[20] = "abc";
 	char src2[] = "LOL";
-    char dst2[20] = "\0abc";
-    ft_memmove(dst1, dst1 + 2, 4);
+    char dst2[20] = "abc";
+    ft_memmove(dst1 + 2, dst1 + 1, 5);
     printf("ft_memmove: %s\n", dst1);
-    memmove(dst2, dst2 + 2, 4);
+    memmove(dst2 + 2, dst2 + 1, 5);
     printf("memmove: %s\n", dst2);
 
     return 0;
