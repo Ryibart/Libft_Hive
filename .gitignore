@@ -1,6 +1,6 @@
 # libft .gitignore rtammi - Hive Helsinki
-# This .gitignore file ignores most common filetypes in C that arent needed(Github template)
-# It has been modified to suit 42 projects
+# This .gitignore file ignores most common filetypes in C that aren't needed (Github template)
+# It has been modified to suit this 42 project
 
 # Personal test files
 test.c
