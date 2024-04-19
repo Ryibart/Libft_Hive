@@ -6,7 +6,7 @@
 #    By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 14:30:33 by rtammi            #+#    #+#              #
-#    Updated: 2024/04/19 12:46:20 by rtammi           ###   ########.fr        #
+#    Updated: 2024/04/19 16:59:30 by rtammi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = 		ft_isalpha.c	\
 			ft_memcpy.c		\
 			ft_memmove.c	\
 			ft_strlcpy.c	\
+			ft_strlcat.c	\
 
 OBJS = $(SRCS:.c=.o)
 
