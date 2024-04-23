@@ -3,7 +3,7 @@
 # It has been modified to suit this 42 project
 
 # Personal test files
-test.c
+test*
 
 # MacOS system folder metafiles
 **/.DS_Store

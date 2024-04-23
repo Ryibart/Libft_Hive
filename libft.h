@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:39:06 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/20 14:12:24 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/23 18:11:40 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
+int			ft_memcmp(const void *s1, const void *s2, size_t n);
+char		*ft_strnstr(const char *s1, const char *s2, size_t n);
+int			ft_atoi(const char *str);
 
 #endif

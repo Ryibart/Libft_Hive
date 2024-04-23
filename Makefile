@@ -6,7 +6,7 @@
 #    By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 14:30:33 by rtammi            #+#    #+#              #
-#    Updated: 2024/04/20 14:12:07 by rtammi           ###   ########.fr        #
+#    Updated: 2024/04/23 18:10:19 by rtammi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ SRCS = 		ft_isalpha.c	\
 			ft_strrchr.c	\
 			ft_strncmp.c	\
 			ft_memchr.c		\
-			# ft_memcmp.c		\
-			# ft_strnstr.c	\
-			# ft_atoi.c		\
+			ft_memcmp.c		\
+			ft_strnstr.c	\
+			ft_atoi.c		\
 			# ft_calloc.c		\
 			# ft_strdup.c		\
 
