@@ -6,7 +6,7 @@
 #    By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 14:30:33 by rtammi            #+#    #+#              #
-#    Updated: 2024/04/23 18:10:19 by rtammi           ###   ########.fr        #
+#    Updated: 2024/04/23 21:10:38 by rtammi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,22 @@ SRCS = 		ft_isalpha.c	\
 			ft_memcmp.c		\
 			ft_strnstr.c	\
 			ft_atoi.c		\
-			# ft_calloc.c		\
-			# ft_strdup.c		\
+			ft_calloc.c		\
+			ft_strdup.c		\
+			ft_substr.c		\
+			ft_strjoin.c	\
+
+# BONUS =		ft_lstnew.c		\
+# 			ft_lstadd_front.c	\
+# 			ft_lstsize.c		\
+# 			ft_lstlast.c		\
+# 			ft_lstadd_back.c	\
+# 			ft_lstdelone.c		\
+# 			ft_lstclear.c		\
+# 			ft_lstiter.c		\
+# 			ft_lstmap.c		\
+
+# SRCS += $(BONUS)
 
 OBJS = $(SRCS:.c=.o)
 
