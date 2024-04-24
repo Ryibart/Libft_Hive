@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:18:16 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/24 12:50:58 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/24 18:01:02 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 	while (*str >= '0' && *str <= '9')
 	{
-		if (result > (9223372036854775807 - digit) / 10)
+		if (result > (9223372036854775807) / 10)
 		{
 			if (sign == 1)
 				return (-1);
@@ -38,6 +38,29 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)result * sign);
 }
+//  #include <stdlib.h>
+// #include <stdio.h>
+// #include <limits.h>
+// #include <string.h>
+
+// int main(void)
+// {
+//     char *s = "-21474836481111111111111111111111111111111111";
+//     char *str;
+
+//     int i = 2;
+//     while (i < 40)
+//     {
+//         str = malloc(i + 1);
+//         memcpy(str, s, i);
+//         str[i] = 0;
+//         printf("%s\n", str);
+//         printf("%i\n", atoi(str));
+//         printf("%i\n\n", ft_atoi(str));
+//         free(str);
+//         i++;
+//     }
+// }
 
 // #include <stdlib.h>
 // #include <stdio.h>
@@ -48,8 +71,8 @@ int	ft_atoi(const char *str)
 // 	char str2[] = "-9223372036854775808";
 // 	char str3[] = "+9223372036854775807";
 // 	char str4[] = "0";
-// 	char str5[] = "21474836481111111111111111111111111111111111";
-// 	char str6[] = "214748364811111";
+// 	char str5[] = "-21474836481111111111111111111111111111111111";
+// 	char str6[] = "-214748364811111";
 // 	char str7[] = "     		-978979a9tdsfa";
 // 	int result = ft_atoi(str);
 // 	int result2 = ft_atoi(str2);
