@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:18:16 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/23 20:20:32 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/24 12:50:58 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_atoi(const char *str)
 
 	result = 0;
 	sign = 1;
-	digit = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '+' || *str == '-')
@@ -30,12 +29,14 @@ int	ft_atoi(const char *str)
 		{
 			if (sign == 1)
 				return (-1);
+			else
+				return (0);
 		}
 		digit = *str - '0';
 		result = result * 10 + digit;
 		str++;
 	}
-	return ((int)(result * sign));
+	return ((int)result * sign);
 }
 
 // #include <stdlib.h>
@@ -49,12 +50,14 @@ int	ft_atoi(const char *str)
 // 	char str4[] = "0";
 // 	char str5[] = "21474836481111111111111111111111111111111111";
 // 	char str6[] = "214748364811111";
+// 	char str7[] = "     		-978979a9tdsfa";
 // 	int result = ft_atoi(str);
 // 	int result2 = ft_atoi(str2);
 // 	int result3 = ft_atoi(str3);
 // 	int result4 = ft_atoi(str4);
 // 	int result5 = ft_atoi(str5);
-// 	int result6 = ft_atoi(str6);	
+// 	int result6 = ft_atoi(str6);
+// 	int result7 = ft_atoi(str7);	
 // 	printf("Your result: %d\n", result);
 // 	printf("Correct result: %d\n", atoi(str));
 // 	printf("Your result: %d\n", result2);
@@ -67,5 +70,8 @@ int	ft_atoi(const char *str)
 // 	printf("Correct result: %d\n", atoi(str5));
 // 	printf("Your result: %d\n", result6);
 // 	printf("Correct result: %d\n", atoi(str6));
+// 	printf("Your result: %d\n", result7);
+// 	printf("Correct result: %d\n", atoi(str7));
+
 // 	return (0);
 // }

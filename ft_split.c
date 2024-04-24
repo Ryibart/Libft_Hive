@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 21:05:43 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/24 11:26:30 by rtammi           ###   ########.fr       */
+/*   Created: 2024/04/24 12:59:18 by rtammi            #+#    #+#             */
+/*   Updated: 2024/04/24 13:35:01 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	**ft_split(char const *s, char c)
 {
-	char	*ret;
-	int		i;
-	int		j;
+	char	**ret;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
-		return (0);
-	ret = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	ret = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!ret)
 		return (0);
-	while (s1[i] != '\0')
+	while (s[i])
 	{
-		ret[i] = s1[i];
+		if (s[i] != c)
+		{
+			k = 0;
+			while (s[i + k] && s[i + k] != c)
+				k++;
+			ret[j] = malloc(k + 1);
+			if (!ret[j])
+				return (0);
+			ft_strlcpy(ret[j], s + i, k + 1);
+			i += k;
+			j++;
+		}
 		i++;
 	}
-	while (s2[j] != '\0')
-	{
-		ret[i] = s2[j];
-		i++;
-		j++;
-	}
-	ret[i] = '\0';
+	ret[j] = 0;
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:39:06 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/23 21:10:41 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/24 12:29:01 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int			ft_atoi(const char *str);
 char		*ft_strdup(const char *s1);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*ft_strjoin(int size, char **strs, char *sep);
+char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strtrim(char const *s1, char const *set);
 
 #endif
