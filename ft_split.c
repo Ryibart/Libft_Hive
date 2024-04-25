@@ -5,30 +5,67 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/24 12:59:18 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/24 18:04:19 by rtammi           ###   ########.fr       */
+/*   Created: 2024/04/25 17:37:53 by rtammi            #+#    #+#             */
+/*   Updated: 2024/04/25 18:42:05 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words(const char *s, char c)
+size_t	count_words(const char *s, char c)
 {
-	int		i;
-	int		ret;
+	size_t	count;
 
-	i = 0;
-	ret = 0;
-	while (s[i] != '\0')
+	count = 0;
+	if (!s || !*s)
+		return (0);
+	while (*s)
 	{
-		if (s[i] != c)
+		while (*s == c)
+			s++;
+		if (*s)
+			count++;
+		while (*s && *s != c)
+			s++;
+	}
+	return (count);
+}
+
+void	free_split(char **arr, int count)
+{
+	if (arr)
+	{
+		while (--count >= 0)
+			free(arr[count]);
+	}
+	free(arr);
+}
+
+char	**split(const char *s, char **ret, char c, int *i)
+{
+	size_t		word_len;
+	const char	*end;
+
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
 		{
-			ret++;
-			while (s[i] != c && s[i] != '\0')
-				i++;
+			end = ft_strchr(s, c);
+			if (end)
+				word_len = end - s;
+			else
+				word_len = ft_strlen(s);
+			ret[*i] = ft_substr(s, 0, word_len);
+			if (!ret[*i])
+			{
+				free_split(ret, *i);
+				return (0);
+			}
+			(*i)++;
+			s += word_len;
 		}
-		else
-			i++;
 	}
 	return (ret);
 }
@@ -37,31 +74,17 @@ char	**ft_split(char const *s, char c)
 {
 	char	**ret;
 	int		i;
-	int		j;
-	int		k;
+	int		word_count;
 
 	i = 0;
-	j = 0;
-	ret = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	word_count = count_words(s, c);
+	if (!s)
+		return (0);
+	ret = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!ret)
 		return (0);
-	while (s[i] != '\0')
-	{
-		if (s[i] != c)
-		{
-			k = 0;
-			while (s[i + k] != c && s[i + k] != '\0')
-				k++;
-			ret[j] = malloc(k + 1);
-			if (!ret[j])
-				return (0);
-			ft_strlcpy(ret[j], s + i, k + 1);
-			i += k;
-			j++;
-		}
-		else
-			i++;
-	}
-	ret[j] = 0;
+	if (!split(s, ret, c, &i))
+		return (0);
+	ret[i] = 0;
 	return (ret);
 }
