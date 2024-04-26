@@ -6,9 +6,31 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:07:24 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/23 12:19:23 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 14:46:50 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*══|ft_strnstr|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Searches for the first occurrence of the substring `s2` 
+				within the first `n` characters of the string `s1`. If 
+				`s2` is found, the function returns a pointer to its start 
+				in `s1`. If `s2` is not found, or if `n` is too small, 
+				the function returns `NULL`.
+				
+	Parameters:
+				s1 (IN) -- The null-terminated string to search within.
+				s2 (IN) -- The substring to search for in `s1`.
+				n  (IN) -- The maximum number of characters to search in `s1`.
+
+	Returns:	A pointer to the first occurrence of `s2` in `s1` within the 
+				first `n` characters. If `s2` is not found, returns `NULL`.
+
+	Notes:		If `s2` is an empty string, the function returns a pointer to 
+				the beginning of `s1`. If `n` is zero, the function does 
+				nothing and returns `NULL`.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 #include "libft.h"
 

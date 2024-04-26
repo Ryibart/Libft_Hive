@@ -6,9 +6,27 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:50:25 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/18 19:44:01 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:19:26 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*══|ft_bzero|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Sets the first `n` bytes of a memory block `s` to zero. This 
+				function is typically used to clear or initialize memory 
+				buffers to ensure they contain no leftover data.
+				
+	Parameters:
+				s (IN/OUT) -- Pointer to the memory block to zero out.
+				n (IN) -- Number of bytes to set to zero in the memory block.
+
+	Returns:	None (void).
+
+	Notes:		If `n` is zero, the function does nothing. The caller must 
+				ensure `s` points to valid memory with at least `n` bytes to 
+				avoid undefined behavior.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 #include "libft.h"
 
@@ -25,15 +43,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-/*
-#include <stdio.h>
-int main(void)
-{
-    char buffer[] = "lollol";
-	printf("%s\n", buffer);
-    ft_bzero(buffer, sizeof(buffer));
-	printf("%s\n", buffer);
-    return 0;
-}
-*/

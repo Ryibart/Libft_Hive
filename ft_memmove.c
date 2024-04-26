@@ -6,9 +6,34 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:06:31 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/24 12:29:37 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:22:02 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*══|ft_memmove|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Copies `n` bytes from the memory block `s2` to the memory 
+				block `s1`. This function is similar to `ft_memcpy`, but 
+				it handles overlapping memory regions safely. If `s1` and 
+				`s2` overlap, it ensures data is not corrupted by copying 
+				in reverse order when necessary.
+				
+	Parameters:
+				s1 (OUT) -- Pointer to the destination memory block where 
+							bytes will be copied.
+				s2 (IN) -- Pointer to the source memory block from which 
+							bytes will be copied.
+				n  (IN) -- Number of bytes to copy from `s2` to `s1`.
+
+	Returns:	A pointer to the destination memory block `s1`.
+
+	Notes:		If both `s1` and `s2` are `NULL`, the function returns `NULL`.
+				The caller should ensure `s1` has sufficient space for `n` bytes.
+				The function is safe to use with overlapping memory regions, 
+				as it can copy from the end to the beginning if `s1` and `s2` 
+				overlap in a way that would otherwise cause data corruption.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 #include "libft.h"
 
@@ -40,36 +65,3 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	}
 	return (s1);
 }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-
-// void print_memory(const unsigned char *mem, size_t n) {
-//     for (size_t i = 0; i < n; i++) {
-//         printf("%02X ", mem[i]);
-//     }
-//     printf("\n");
-// }
-
-// int main() {
-//     unsigned char buffer[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-//     // Test scenario with backward overlap
-//     printf("Original buffer: ");
-//     print_memory(buffer, 10);
-
-//     printf("\nBackward overlap test:\n");
-//     ft_memmove(buffer + 4, buffer, 6);
-//     printf("After my_memmove(buffer + 4, buffer, 6): ");
-//     print_memory(buffer, 10);
-
-//     // Test scenario without overlap
-//     unsigned char buffer2[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-//     printf("\nNo overlap test:\n");
-//     ft_memmove(buffer2 + 5, buffer2, 4);
-//     printf("After my_memmove(buffer2 + 5, buffer2, 4): ");
-//     print_memory(buffer2, 10);
-
-//     return 0;
-// }

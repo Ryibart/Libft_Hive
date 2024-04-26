@@ -6,9 +6,22 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:30:30 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/18 19:43:57 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:16:01 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*══|ft_isascii|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Checks whether a given integer represents a valid ASCII 
+				character. ASCII characters range from 0 to 127.
+				
+	Parameters:
+				c (IN) -- The integer to check.
+
+	Returns:	Returns `1` (true) if the integer `c` is a valid ASCII 
+				character, and `0` (false) otherwise.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 int	ft_isascii(int c)
 {

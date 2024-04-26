@@ -6,13 +6,25 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:03:58 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/25 18:43:15 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:50:04 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	absolute_value(int n)
+/*══|ft_absolute_value|═══════════════════════════════════════════════════════*
+
+	Purpose:	Returns the absolute value of an integer. This function 
+            	handles edge cases like the minimum 32-bit signed integer 
+            	value to avoid overflow.
+
+	Parameters:
+				n (IN) -- The integer whose absolute value is to be found.
+
+	Returns:	The absolute value of the input integer.
+*═════════════════════════════════════════════════════════════════════════════*/
+
+static int	ft_absolute_value(int n)
 {
 	if (n == -2147483648)
 		return (-(n + 1) + 1);
@@ -21,7 +33,19 @@ int	absolute_value(int n)
 	return (n);
 }
 
-int	digit_count(int n)
+/*══|ft_digit_count|══════════════════════════════════════════════════════════*
+
+	Purpose:	Determines the number of digits in an integer, considering 
+    			negative numbers as having an additional digit for the sign.
+
+	Parameters:
+				n (IN) -- The integer whose digit count is to be calculated.
+
+	Returns:	The count of digits in the integer, including the sign 
+				for negative numbers.
+*═════════════════════════════════════════════════════════════════════════════*/
+
+static int	ft_digit_count(int n)
 {
 	int	count;
 	int	temp;
@@ -38,14 +62,28 @@ int	digit_count(int n)
 	return (count);
 }
 
+/*══|ft_itoa|══════════════════════════════════════════════════════════*
+
+	Purpose:	Converts an integer into a null-terminated string 
+        		representation. The function handles negative numbers 
+            	and utilizes the `ft_absolute_value` function to ensure correct 
+            	conversion without overflow.
+				
+	Parameters:
+				n (IN) -- The integer to be converted to a string.
+
+	Returns:	A dynamically allocated string representing the integer.
+        		If memory allocation fails, returns NULL.
+*═════════════════════════════════════════════════════════════════════════════*/
+
 char	*ft_itoa(int n)
 {
 	int				len;
 	unsigned int	abs_n;
 	char			*str;
 
-	len = digit_count(n);
-	abs_n = absolute_value(n);
+	len = ft_digit_count(n);
+	abs_n = ft_absolute_value(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);

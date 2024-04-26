@@ -6,13 +6,26 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 17:53:03 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/24 18:09:54 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 14:44:10 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*══|ft_strnew|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Allocates a new string with the given `size` and initializes 
+				all its bytes to zero. 
+				
+	Parameters:
+				size (IN) -- The size of the new string to be allocated.
+
+	Returns:	A pointer to the newly allocated string with all bytes set 
+				to zero. If memory allocation fails, the function returns `NULL`.
+
+*═════════════════════════════════════════════════════════════════════════════*/
+
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+static char	*ft_strnew(size_t size)
 {
 	char	*str;
 
@@ -22,6 +35,27 @@ char	*ft_strnew(size_t size)
 	ft_bzero(str, size + 1);
 	return (str);
 }
+
+/*══|ft_strmapi|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Creates a new string by applying a given function `f` to 
+				each character of a string `s`. The function passes the 
+				character and its index to `f` to generate the new string.
+				
+	Parameters:
+				s (IN) -- The original null-terminated string to process.
+				f (IN) -- A function that takes an index and a character, 
+				          returning the transformed character.
+
+	Returns:	A pointer to the newly created string after applying the 
+				function `f` to each character. Returns `NULL` if memory 
+				allocation fails or if `s` or `f` is `NULL`.
+
+	Notes:		If either `s` or `f` is `NULL`, the function returns `NULL` 
+				without doing anything. The returned string must be freed 
+				to avoid memory leaks.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

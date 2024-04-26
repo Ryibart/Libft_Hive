@@ -6,9 +6,29 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 21:05:43 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/24 11:26:30 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 13:46:11 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*══|ft_strjoin|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Joins two null-terminated strings `s1` and `s2` into a single 
+				string. The function allocates memory for the resulting string 
+				and concatenates the contents of `s1` and `s2`.
+				
+	Parameters:
+				s1 (IN) -- The first null-terminated string to be joined.
+				s2 (IN) -- The second null-terminated string to be joined.
+
+	Returns:	A pointer to the newly allocated string that contains the 
+				concatenated contents of `s1` and `s2`. Returns `NULL` if 
+				memory allocation fails or if `s1` or `s2` is `NULL`.
+
+	Notes:		The caller is responsible for freeing the returned string 
+				to avoid memory leaks. Ensure both `s1` and `s2` are valid 
+				null-terminated strings before calling this function.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 #include "libft.h"
 

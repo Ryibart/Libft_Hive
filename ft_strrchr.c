@@ -6,21 +6,33 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 11:51:02 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/20 12:48:03 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 14:48:14 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*══|ft_strrchr|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Finds the last occurrence of the character `c` in a 
+				null-terminated string `s`. The function searches from the 
+				end of the string to the beginning and returns a pointer 
+				to the found character. If `c` is not found, it returns `NULL`.
+				
+	Parameters:
+				s (IN) -- The null-terminated string to search through.
+				c (IN) -- The character to search for in the string `s`.
+
+	Returns:	A pointer to the last occurrence of the character `c` in the 
+				string `s`. If `c` is not found, returns `NULL`. If `c` is the 
+				null-terminator, it returns a pointer to the null-terminator 
+				at the end of the string.
+
+	Notes:		If `c` is not found in the string, the function returns `NULL`. 
+				Be cautious of buffer overflows by ensuring `s` points to a 
+				valid null-terminated string.
+
+*═════════════════════════════════════════════════════════════════════════════*/
+
 #include "libft.h"
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
 
 char	*ft_strrchr(const char *s, int c)
 {

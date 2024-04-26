@@ -6,9 +6,34 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:08:24 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/19 17:26:32 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:24:37 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*══|ft_strlcat|═══════════════════════════════════════════════════════════════*
+
+	Purpose:	Appends the null-terminated string `src` to the end of the 
+				null-terminated string `dst` while ensuring the resulting 
+				string does not exceed the specified `size`. This function 
+				appends as many characters from `src` as possible to `dst`, 
+				and then null-terminates the result.
+				
+	Parameters:
+				dst (IN/OUT) -- Destination string to which `src` is appended. 
+				              It must have enough space for the final result.
+				src (IN) -- The source string to be appended to `dst`.
+				size (IN) -- The total size of `dst` including null-terminator.
+
+	Returns:	The length of the string that would have been created if 
+				there were no size limitations. If `size` is zero, returns 
+				the length of `src`. If `dst`'s initial length is greater 
+				than or equal to `size`, returns the length of `src` plus `size`.
+
+	Notes:		Ensure that `dst` has enough space to avoid buffer overflow. 
+				If `dst` is already larger than `size`, the function only
+				returns the combined length but does not modify `dst`.
+
+*═════════════════════════════════════════════════════════════════════════════*/
 
 #include "libft.h"
 
@@ -37,21 +62,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	else
 		return (src_len + dst_len);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	test1[10] = "abc";
-// 	char	test2[10] = "defg";
-// 	char	test3[10] = "abc";
-// 	char	test4[10] = "defg";
-
-// 	printf("strlcat: %lu\n", strlcat(test1, test2, sizeof(test1)));
-// 	printf("strlcat: %s\n", test1);
-
-// 	printf("ft_strlcat: %lu\n", ft_strlcat(test3, test4, sizeof(test3)));
-// 	printf("ft_strlcat: %s\n", test3);
-// 	return (0);
-// }
