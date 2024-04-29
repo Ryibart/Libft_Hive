@@ -6,7 +6,7 @@
 /*   By: rtammi <rtammi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:18:16 by rtammi            #+#    #+#             */
-/*   Updated: 2024/04/28 15:25:12 by rtammi           ###   ########.fr       */
+/*   Updated: 2024/04/29 12:52:51 by rtammi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,14 @@
 
 *═════════════════════════════════════════════════════════════════════════════*/
 
+#include <stdio.h>
+#include "libft.h"
+
 int	ft_atoi(const char *str)
 {
 	long	result;
 	int		sign;
-	long	digit;
+	long	temp;
 
 	result = 0;
 	sign = 1;
@@ -49,16 +52,12 @@ int	ft_atoi(const char *str)
 			sign = -1;
 	while (*str >= '0' && *str <= '9')
 	{
-		if (result > (__LONG_MAX__) / 10)
-		{
-			if (sign == 1)
-				return (-1);
-			else
-				return (0);
-		}
-		digit = *str - '0';
-		result = result * 10 + digit;
-		str++;
+		temp = result;
+		result = (result * 10) + (*str++ - '0');
+		if (temp > result && sign == 1)
+			return (-1);
+		else if (temp > result && sign == -1)
+			return (0);
 	}
 	return ((int)result * sign);
 }
